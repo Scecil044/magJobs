@@ -39,13 +39,13 @@ export default function TopNav() {
             <BiSolidChevronDown />
           </span>
         </Link>
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link to="/jobs" className="flex flex-col items-center cursor-pointer">
           <HiShoppingBag className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Jobs
             <BiSolidChevronDown />
           </span>
-        </div>
+        </Link>
 
         <Link to="/my/network" className="flex flex-col items-center cursor-pointer">
           <GiNetworkBars className="w-7 h-7" />
@@ -55,21 +55,21 @@ export default function TopNav() {
           </span>
         </Link>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link to="/notifications" className="flex flex-col items-center cursor-pointer">
           <IoMdNotifications className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Notifications
             <BiSolidChevronDown />
           </span>
-        </div>
+        </Link>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link to="/messaging" className="flex flex-col items-center cursor-pointer">
           <AiFillMessage className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Messaging
             <BiSolidChevronDown />
           </span>
-        </div>
+        </Link>
 
         <div
           onClick={() => setToggleProfileDropdown(!toggleProfileDropdown)}

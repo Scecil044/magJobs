@@ -8,6 +8,9 @@ import Landing from "./components/Landing";
 import UserHome from "./pages/UserHome";
 import MyNetwork from "./pages/MyNetwork";
 import NotFound from "./pages/NotFound";
+import Jobs from "./pages/Jobs";
+import Notifications from "./pages/Notifications";
+import Messaging from "./pages/Messaging";
 
 export default function App() {
   return (
@@ -23,6 +26,9 @@ export default function App() {
           <Route element={<Landing />}>
             <Route path="/app/home" element={<UserHome />} />
             <Route path="/my/network" element={<MyNetwork />} />
+            <Route path="/jobs" element={<Jobs />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/messaging" element={<Messaging />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
