@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Header />
 
       {/* Hero */}
@@ -15,6 +15,6 @@ export default function Home() {
       <PostJob />
 
       <Footer />
-    </>
+    </div>
   );
 }

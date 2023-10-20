@@ -8,7 +8,7 @@ import { FiLogOut } from "react-icons/fi";
 
 export default function Header() {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector(state => state.auth);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   const logoutUser = async () => {
@@ -41,10 +41,7 @@ export default function Header() {
               </Link>
 
               {user ? (
-                <div
-                  onClick={() => setToggleDropdown(!toggleDropdown)}
-                  className="cursor-pointer flex items-center gap-1"
-                >
+                <div onClick={() => setToggleDropdown(!toggleDropdown)} className="cursor-pointer flex items-center gap-1">
                   <img
                     src="https://randomuser.me/portraits/men/15.jpg"
                     alt="avatar"
@@ -54,16 +51,10 @@ export default function Header() {
                 </div>
               ) : (
                 <div className="flex flex-row  gap-3 border-l border-gray-500 px-2">
-                  <Link
-                    to="/register"
-                    className="py-2 px-6 rounded-2xl hover:bg-blue-50"
-                  >
+                  <Link to="/register" className="py-2 px-6 rounded-2xl hover:bg-blue-50">
                     Join now
                   </Link>
-                  <Link
-                    to="/login"
-                    className="rounded-2xl py-2 px-6 border border-indigo-800 text-indigo-600 hover:bg-blue-50"
-                  >
+                  <Link to="/login" className="rounded-2xl py-2 px-6 border border-indigo-800 text-indigo-600 hover:bg-blue-50">
                     Sign In
                   </Link>
                 </div>

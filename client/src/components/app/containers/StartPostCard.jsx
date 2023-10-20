@@ -3,26 +3,26 @@ import { BiCalendarEvent } from "react-icons/bi";
 import { GrArticle } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import CreatePostModal from "../../modals/CreatePostModal";
 
 export default function StartPostCard() {
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector(state => state.auth);
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <div className="flex items-center gap-5">
         <div className="flex">
           <Link to="/profile">
-            <img
-              src={user?.avatar}
-              alt="avatar"
-              className="rounded-full h-12 w-12"
-            />
+            <img src={user?.avatar} alt="avatar" className="rounded-full h-12 w-12" />
           </Link>
         </div>
         <div className="flex-1">
           <input
+            onClick={() => setShowModal(!showModal)}
             type="text"
             placeholder="Start a post"
-            className="outline-none py-3 px-6 border border-gray-500 rounded-3xl w-full"
+            className="outline-none py-3 px-6 border border-gray-500 rounded-3xl w-full hover:bg-gray-200 hover:cursor-pointer"
           />
         </div>
       </div>
@@ -40,6 +40,9 @@ export default function StartPostCard() {
           Write article
         </button>
       </div>
+
+      {/* modal */}
+      <CreatePostModal setShowModal={setShowModal} showModal={showModal} />
     </>
   );
 }

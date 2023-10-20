@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 export default function Landing() {
   const { user } = useSelector(state => state.auth);
   return user ? (
-    <div className="h-screen">
+    <div className="h-screen ">
       <Outlet />
     </div>
   ) : (

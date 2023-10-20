@@ -21,7 +21,7 @@ export default function AddToFeed({ feeds = mock }) {
   return (
     <>
       <div className="flex justify-between items-center font-semibold">
-        <h1>Add to your feed</h1>
+        <h1 className="card-header">Add to your feed</h1>
       </div>
       {feeds.slice(0, 3).map((feed, index) => {
         return (
@@ -31,7 +31,7 @@ export default function AddToFeed({ feeds = mock }) {
                 <img src="/google.svg" alt="avatar" className="w-10 h-10 rounded-full" />
               </Link>
               <div className="flex flex-col">
-                <h1 className="font-semibold">
+                <h1 className="font-semibold card-header">
                   {feed?.firstName} {feed?.lastName}
                 </h1>
                 <span className="text-xs text-gray-400">React | javascript | Php | Tailwind | Mysql |UI/UX</span>
@@ -46,7 +46,7 @@ export default function AddToFeed({ feeds = mock }) {
         );
       })}
       <div className="flex justify-between items-center font-semibold">
-        <h1 className="text-sm">View all recommendations</h1>
+        <h1 className="text-sm card-header">View all recommendations</h1>
       </div>
     </>
   );

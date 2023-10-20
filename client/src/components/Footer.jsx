@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="bg-[#0072b1] h-96 p-5 text-white text-xs">
         <div className="w-[80%] mx-auto mt-20 grid grid-cols-3 gap-10">
           <div className="flex flex-col">
-            <h1>Home and services</h1>
+            <h1 className="card-header">Home and services</h1>
             <hr className="h-8 my-2" />
             <div className="flex flex-col">
               <Link className="hover:font-semibold hover:underline transition-all duration-300" to="/app/home">
@@ -34,11 +34,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h1>Important links</h1>
+            <h1 className="card-header">Important links</h1>
             <hr className="h-8 my-2" />
           </div>
           <div>
-            <h1>Our partners</h1>
+            <h1 className="card-header">Our partners</h1>
             <hr className="h-8 my-2" />
           </div>
         </div>

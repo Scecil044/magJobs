@@ -4,9 +4,10 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
-
 import Landing from "./components/Landing";
 import UserHome from "./pages/UserHome";
+import MyNetwork from "./pages/MyNetwork";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -21,7 +22,9 @@ export default function App() {
           </Route>
           <Route element={<Landing />}>
             <Route path="/app/home" element={<UserHome />} />
+            <Route path="/my/network" element={<MyNetwork />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

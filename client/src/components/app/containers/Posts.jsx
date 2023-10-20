@@ -37,7 +37,7 @@ export default function Posts({ posts = mock }) {
     <>
       {posts?.map((post, index) => {
         return (
-          <div key={index} className="bg-white shadow-lg p-3 rounded-lg">
+          <div key={index} className="bg-white shadow-lg p-3 rounded-lg border border-gray-400">
             <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-1">
                 <img
@@ -61,7 +61,7 @@ export default function Posts({ posts = mock }) {
                   <img src={post?.avatar} alt="avatar" className="w-12 h-12 rounded-full object-cover" />
                 </div>
                 <div>
-                  <h1 className="font-semibold">
+                  <h1 className="font-semibold card-header">
                     {post?.firstName} {post?.lastName}
                   </h1>
                 </div>

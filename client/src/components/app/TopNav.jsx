@@ -15,7 +15,7 @@ export default function TopNav() {
   const [toggleProfileDropdown, setToggleProfileDropdown] = useState(false);
   return (
     <div className="w-full h-16 shadow-lg">
-      <header className=" flex justify-between items-center max-w-6xl mx-auto">
+      <header className=" flex justify-between items-center max-w-6xl mx-auto mt-2">
         <div className="flex items-center gap-4">
           <div className="font-semibold">
             <Link to="/app/home" className="flex cursor-pointer">
@@ -32,13 +32,13 @@ export default function TopNav() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link to="/app/home" className="flex flex-col items-center cursor-pointer">
           <AiOutlineHome className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Home
             <BiSolidChevronDown />
           </span>
-        </div>
+        </Link>
         <div className="flex flex-col items-center cursor-pointer">
           <HiShoppingBag className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
@@ -47,13 +47,13 @@ export default function TopNav() {
           </span>
         </div>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link to="/my/network" className="flex flex-col items-center cursor-pointer">
           <GiNetworkBars className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             My network
             <BiSolidChevronDown />
           </span>
-        </div>
+        </Link>
 
         <div className="flex flex-col items-center cursor-pointer">
           <IoMdNotifications className="w-7 h-7" />

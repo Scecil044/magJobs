@@ -7,16 +7,16 @@ export default function MainProfileCard() {
   const { user } = useSelector(state => state.auth);
   return (
     <div className="flex flex-col gap-5">
-      <div className="bg-white shadow-lg">
-        <div className="relative h-[150px]">
-          <div className="relative overflow-hidden h-[150px]">
+      <div className="bg-white shadow-lg border border-gray-400">
+        <div className="relative h-[200px]">
+          <div className="relative overflow-hidden h-[200px]">
             <img
               src="https://i.natgeofe.com/n/16fc1c64-7589-46da-8350-aa3b01da2152/3961779_16x9.jpg"
               alt="avatar"
               className="absolute w-full object-cover rounded-t-lg"
             />
           </div>
-          <div className="absolute top-24 left-5">
+          <div className="absolute top-32 left-5">
             <img src={user?.avatar} alt="avatar" className="rounded-full w-28 h-28" />
           </div>
           <Link to="/" className="absolute top-7 right-12 rounded-full bg-white h-9 w-9 flex items-center justify-center">
