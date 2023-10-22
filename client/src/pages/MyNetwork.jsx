@@ -2,8 +2,6 @@ import { useState } from "react";
 import AppSpinner from "../components/common/AppSpinner";
 import Invitations from "../components/myNetwork/Invitations";
 import ManageMyNetwork from "../components/myNetwork/ManageMyNetwork";
-import TopNav from "../components/app/TopNav";
-import BodyFooter from "../components/common/BodyFooter";
 import MyNetworkSuggestions from "../components/myNetwork/MyNetworkSuggestions";
 import AppAdd from "../components/common/AppAdd";
 import { Link } from "react-router-dom";
@@ -12,15 +10,14 @@ export default function MyNetwork() {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <>
-      <TopNav />
       <div className="max-w-6xl mx-auto">
         {/* left component */}
         <div className="flex p-5 gap-8">
           <div className="w-[300px]">
             <ManageMyNetwork />
-            <div className="mt-5">
+            {/* <div className="mt-5">
               <AppAdd />
-            </div>
+            </div> */}
             <div className="flex flex-col items-center justify-center my-7 text-xs text-gray-400 w-[300px] px-5">
               <div className="flex flex-wrap gap-3">
                 <Link to="/about" className="hover:text-blue-500 hover:underline">
@@ -67,7 +64,6 @@ export default function MyNetwork() {
           </div>
         </div>
       </div>
-      <BodyFooter />
     </>
   );
 }

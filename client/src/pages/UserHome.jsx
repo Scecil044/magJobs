@@ -1,16 +1,14 @@
-import TopNav from "../components/app/TopNav";
 import AddToFeed from "../components/app/containers/AddToFeed";
 import Posts from "../components/app/containers/Posts";
 import ProfileSection from "../components/app/containers/ProfileSection";
 import RecentGroupsAndEvents from "../components/app/containers/RecentGroupsAndEvents";
 import StartPostCard from "../components/app/containers/StartPostCard";
 import { Link } from "react-router-dom";
-import BodyFooter from "../components/common/BodyFooter";
+import AddText from "../components/common/AddText";
+
 export default function UserHome() {
   return (
     <div>
-      <TopNav />
-
       {/* main */}
       <section className="flex gap-6 max-w-6xl mx-auto my-5">
         {/* left component */}
@@ -38,45 +36,9 @@ export default function UserHome() {
           </div>
 
           {/* Advert section */}
-          <div className="flex flex-col items-center justify-center my-7 text-xs text-gray-400 w-[300px] px-5">
-            <div className="flex flex-wrap gap-3">
-              <Link to="/about" className="hover:text-blue-500 hover:underline">
-                About
-              </Link>
-              <Link to="/about" className="hover:text-blue-500 hover:font-semibold hover:underline">
-                Help center
-              </Link>
-              <Link to="/about" className="hover:text-blue-500 hover:font-semibold hover:underline">
-                Privacy and Terms
-              </Link>
-              <Link to="/about" className="hover:text-blue-500 hover:font-semibold hover:underline">
-                Ad Choices
-              </Link>
-              <Link to="/about" className="hover:text-blue-500 hover:font-semibold hover:underline">
-                Advertising
-              </Link>
-              <Link to="/about" className="hover:text-blue-500 hover:font-semibold hover:underline">
-                Business services
-              </Link>
-              <Link to="/about" className="hover:text-blue-500 hover:font-semibold hover:underline">
-                Get the MagJobs App
-              </Link>
-              <Link to="/about" className="hover:text-blue-500 hover:font-semibold hover:underline">
-                More
-              </Link>
-            </div>
-            <div className="self-start flex items-center gap-3 mt-4 font-bold text-lg">
-              <span className="flex items-center">
-                <p className="text-blue-600">mag</p>
-                <div className="bg-indigo-700 text-white rounded-2xl px-1">Jobs</div>
-              </span>
-              <span className="text-xs text-neutral-700 whitespace-nowrap">MagJobs corporation &copy; 2023</span>
-            </div>
-          </div>
+          <AddText />
         </div>
       </section>
-
-      <BodyFooter />
     </div>
   );
 }

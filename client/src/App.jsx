@@ -11,6 +11,8 @@ import NotFound from "./pages/NotFound";
 import Jobs from "./pages/Jobs";
 import Notifications from "./pages/Notifications";
 import Messaging from "./pages/Messaging";
+import FeedUpdate from "./pages/FeedUpdate";
+import SetUpCompany from "./pages/SetUpCompany";
 
 export default function App() {
   return (
@@ -29,6 +31,8 @@ export default function App() {
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/messaging" element={<Messaging />} />
+            <Route path="/feed/update/:id" element={<FeedUpdate />} />
+            <Route path="/company/setup/new" element={<SetUpCompany />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

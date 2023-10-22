@@ -1,6 +1,6 @@
 export default function PostJob() {
   return (
-    <div className=" flex items-center bg-[#f1ece5] h-44 w-full p-12 gap-12">
+    <div className=" flex items-center bg-[rgb(241,236,229)] h-44 w-full p-12 gap-12">
       <h1 className="text-4xl text-[#b24020] font-semibold">
         Post a job for millions of people to see
       </h1>

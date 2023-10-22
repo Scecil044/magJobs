@@ -9,12 +9,22 @@ import { PiDotsNineBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ProfileDropdown from "./ProfileDropdown";
+import { Drawer } from "antd";
+import BusinessDrawerCard from "../business/BusinessDrawerCard";
 
 export default function TopNav() {
   const { user } = useSelector(state => state.auth);
   const [toggleProfileDropdown, setToggleProfileDropdown] = useState(false);
+
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
   return (
-    <div className="w-full h-16 shadow-lg">
+    <div className="w-full h-16 shadow-lg bg-white">
       <header className=" flex justify-between items-center max-w-6xl mx-auto mt-2">
         <div className="flex items-center gap-4">
           <div className="font-semibold">
@@ -83,7 +93,7 @@ export default function TopNav() {
           </span>
         </div>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <div onClick={showDrawer} className="flex flex-col items-center cursor-pointer">
           <PiDotsNineBold className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             For Business
@@ -99,6 +109,10 @@ export default function TopNav() {
           </span>
         </div>
       </header>
+
+      <Drawer title="For Business" placement="right" onClose={onClose} open={open}>
+        <BusinessDrawerCard setOpen={setOpen} />
+      </Drawer>
     </div>
   );
 }

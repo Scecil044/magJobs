@@ -25,7 +25,7 @@ export default function MainProfileCard() {
         </div>
 
         <div className="flex justify-between p-5 gap-8">
-          <div className="flex flex-col mt-20">
+          <div className="flex flex-col">
             <h1 className="font-semibold text-2xl">
               {user?.firstName} {user?.lastName}
             </h1>
@@ -50,7 +50,7 @@ export default function MainProfileCard() {
                   className=" w-20 h-20 rounded-full object-cover"
                 />
               </div>
-              <div>
+              <div className="">
                 <span className="font-semibold text-sm">Jomo Kenyatta University of Agriculture and Technology</span>
               </div>
             </div>
