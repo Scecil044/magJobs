@@ -1,10 +1,14 @@
 import { AiFillLike } from "react-icons/ai";
 import { BiPlus } from "react-icons/bi";
-import { BsFillSendFill } from "react-icons/bs";
+import { BsEmojiSmile, BsFillSendFill, BsImageFill } from "react-icons/bs";
 import { FaRegCommentDots } from "react-icons/fa";
 import { BiRepost, BiLike } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import { useRef } from "react";
 
 export default function Reactions() {
+  const { user } = useSelector(state => state.auth);
+  const fileRef = useRef();
   return (
     <div className="px-5 mt-3">
       <p>Reactions</p>
@@ -63,6 +67,25 @@ export default function Reactions() {
           <BsFillSendFill className="w-6 h-6 text-gray-500" />
           send
         </button>
+      </div>
+
+      {/* input */}
+      <div className="flex gap-2 mb-2 items-center">
+        <div>
+          <img src={user?.avatar} alt="avatar" className="h-8 w-8 rounded-full object-cover" />
+        </div>
+        <div className="flex-1 relative">
+          <input
+            type="text"
+            placeholder="Type something here"
+            className="w-full rounded-3xl border border-gray-500 py-2 pl-2 pr-10 "
+          />
+          <div className="flex items-center gap-2 absolute right-4 top-3">
+            <BsEmojiSmile className="w-6 h-5" />
+            <BsImageFill onClick={() => fileRef.current.click()} className="w-6 h-5 cursor-pointer" />
+            <input type="file" hidden ref={fileRef} />
+          </div>
+        </div>
       </div>
     </div>
   );

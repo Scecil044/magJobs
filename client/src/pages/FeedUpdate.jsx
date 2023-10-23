@@ -1,15 +1,40 @@
 import { BsThreeDots } from "react-icons/bs";
 import AppAdd from "../components/common/appAdd";
-import { AiFillLike, AiFillDislike } from "react-icons/ai";
+import { AiFillLike, AiFillDislike, AiOutlinePlus } from "react-icons/ai";
 import { BiPlus, BiWorld } from "react-icons/bi";
 import Reactions from "../components/feeds/Reactions";
+import AddText from "../components/common/AddText";
+import { Link } from "react-router-dom";
 
 export default function FeedUpdate() {
   return (
     <>
       <div className="flex gap-8 items-center p-5">
         {/* left container */}
-        <div className="w-[220px] shadow-lg p-3 self-start">left</div>
+        <div className="w-[220px] self-start">
+          <div className="bg-white rounded-lg border border-gray-400">
+            <div className="bg-blue-800 relative h-12">
+              <img
+                src="https://randomuser.me/portraits/women/54.jpg"
+                alt="avatar"
+                className="object-cover rounded-full h-16 w-16 absolute top-2 right-20"
+              />
+            </div>
+            <div className="mt-12 text-center">
+              <p>Sylvester Mercy</p>
+              <p className="text-gray-400 text-sm">Attended Mexico University</p>
+
+              <div className="flex items-center justify-center my-3">
+                <button className="flex flex-row-reverse items-center gap-1 border border-blue-700 py-1 px-4 rounded-3xl hover:bg-blue-100 shadow-sm hover:shadow-lg transition-shadow duration-150">
+                  Follow <AiOutlinePlus />
+                </button>
+              </div>
+              <Link to="/" className="font-semibold text-sm">
+                View Full profile
+              </Link>
+            </div>
+          </div>
+        </div>
         {/* central container */}
         <div className="flex-1 bg-white shadow-lg border border-gray-400">
           <div className="flex items-center justify-between p-2">
@@ -87,7 +112,9 @@ export default function FeedUpdate() {
           </div>
         </div>
         {/* right container */}
-        <div className="w-[300px] p-3 self-start" />
+        <div className="w-[300px] p-3 self-start">
+          <AddText />
+        </div>
       </div>
     </>
   );

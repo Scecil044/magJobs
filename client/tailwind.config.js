@@ -4,5 +4,5 @@ export default {
   theme: {
     extend: {}
   },
-  plugins: [require("tw-elements-react/dist/plugin.cjs")]
+  plugins: [require("tw-elements-react/dist/plugin.cjs"), require("tailwind-scrollbar-hide")]
 };

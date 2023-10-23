@@ -35,7 +35,7 @@ export default function Header() {
                 <SlSocialDropbox className="h-8 w-8" />
                 <li>Articles</li>
               </Link>
-              <Link to="/about" className="flex items-center gap-2">
+              <Link to="/guest/home/page" className="flex items-center gap-2">
                 <AiOutlineShopping className="h-8 w-8" />
                 <li>Jobs</li>
               </Link>

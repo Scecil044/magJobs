@@ -13,6 +13,11 @@ import Notifications from "./pages/Notifications";
 import Messaging from "./pages/Messaging";
 import FeedUpdate from "./pages/FeedUpdate";
 import SetUpCompany from "./pages/SetUpCompany";
+import Learning from "./pages/Learning";
+import CreateCompany from "./pages/CreateCompany";
+import JobCollections from "./pages/JobCollections";
+import GuestHomePage from "./pages/GuestHomePage";
+import Guest from "./components/Guest";
 
 export default function App() {
   return (
@@ -24,6 +29,8 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route element={<Layout />}>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/learning" element={<Learning />} />
+            <Route path="/create/company" element={<CreateCompany />} />
           </Route>
           <Route element={<Landing />}>
             <Route path="/app/home" element={<UserHome />} />
@@ -33,6 +40,10 @@ export default function App() {
             <Route path="/messaging" element={<Messaging />} />
             <Route path="/feed/update/:id" element={<FeedUpdate />} />
             <Route path="/company/setup/new" element={<SetUpCompany />} />
+            <Route path="/jobs/collections/recommended" element={<JobCollections />} />
+          </Route>
+          <Route element={<Guest />}>
+            <Route path="/guest/home/page" element={<GuestHomePage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

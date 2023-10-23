@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function SetUpCompany() {
   return (
     <div className="p-5 bg-white">
@@ -8,7 +10,10 @@ export default function SetUpCompany() {
         </p>
       </div>
       <div className="flex items-center justify-center gap-12">
-        <div className="bg-white p-3 py-1 shadow-lg border border-gray-400 hover:border-2 transition-all duration-200">
+        <Link
+          to="/create/company"
+          className="bg-white p-3 py-1 shadow-lg border border-gray-400 hover:border-2 transition-all duration-200"
+        >
           <div>
             <img src="/job.png" alt="avatar" className="object-cover h-24 w-24 mx-auto" />
           </div>
@@ -16,7 +21,7 @@ export default function SetUpCompany() {
             <p className="font-semibold">Company</p>
             <p className="text-sm w-[70%] text-center">Small,medium and large business</p>
           </div>
-        </div>
+        </Link>
 
         <div className="bg-white p-3 py-1 shadow-lg border border-gray-400 hover:border-2 transition-all duration-200">
           <div className="flex items-center justify-center">

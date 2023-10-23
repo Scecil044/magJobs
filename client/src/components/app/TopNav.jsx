@@ -15,10 +15,20 @@ import BusinessDrawerCard from "../business/BusinessDrawerCard";
 export default function TopNav() {
   const { user } = useSelector(state => state.auth);
   const [toggleProfileDropdown, setToggleProfileDropdown] = useState(false);
+  const [activeTab, setActiveTab] = useState(1);
 
+  const handleActiveTab = tabIndex => {
+    setActiveTab(tabIndex);
+  };
+
+  const handleProfileDropDown = tabIndex => {
+    setToggleProfileDropdown(!toggleProfileDropdown);
+    setActiveTab(tabIndex);
+  };
   const [open, setOpen] = useState(false);
-  const showDrawer = () => {
+  const showDrawer = tabIndex => {
     setOpen(true);
+    setActiveTab(tabIndex);
   };
   const onClose = () => {
     setOpen(false);
@@ -28,7 +38,7 @@ export default function TopNav() {
       <header className=" flex justify-between items-center max-w-6xl mx-auto mt-2">
         <div className="flex items-center gap-4">
           <div className="font-semibold">
-            <Link to="/app/home" className="flex cursor-pointer">
+            <Link onClick={() => setActiveTab(1)} to="/app/home" className="flex cursor-pointer">
               Mag <div className="text-white bg-indigo-700 px-1 rounded-lg">Jobs</div>
             </Link>
           </div>
@@ -42,14 +52,22 @@ export default function TopNav() {
           </div>
         </div>
 
-        <Link to="/app/home" className="flex flex-col items-center cursor-pointer">
+        <Link
+          onClick={() => handleActiveTab(1)}
+          to="/app/home"
+          className={`flex flex-col items-center cursor-pointer ${activeTab === 1 ? "border-green-700 border-b-4" : ""}`}
+        >
           <AiOutlineHome className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Home
             <BiSolidChevronDown />
           </span>
         </Link>
-        <Link to="/jobs" className="flex flex-col items-center cursor-pointer">
+        <Link
+          onClick={() => handleActiveTab(9)}
+          to="/jobs"
+          className={`flex flex-col items-center cursor-pointer ${activeTab === 9 ? "border-b-4 border-green-700" : ""}`}
+        >
           <HiShoppingBag className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Jobs
@@ -57,7 +75,11 @@ export default function TopNav() {
           </span>
         </Link>
 
-        <Link to="/my/network" className="flex flex-col items-center cursor-pointer">
+        <Link
+          onClick={() => handleActiveTab(2)}
+          to="/my/network"
+          className={`flex flex-col items-center cursor-pointer ${activeTab === 2 ? "border-b-4 border-green-700" : ""}`}
+        >
           <GiNetworkBars className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             My network
@@ -65,7 +87,11 @@ export default function TopNav() {
           </span>
         </Link>
 
-        <Link to="/notifications" className="flex flex-col items-center cursor-pointer">
+        <Link
+          onClick={() => handleActiveTab(3)}
+          to="/notifications"
+          className={`flex flex-col items-center cursor-pointer ${activeTab === 3 ? "border-b-4 border-green-700" : ""}`}
+        >
           <IoMdNotifications className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Notifications
@@ -73,7 +99,11 @@ export default function TopNav() {
           </span>
         </Link>
 
-        <Link to="/messaging" className="flex flex-col items-center cursor-pointer">
+        <Link
+          onClick={() => handleActiveTab(4)}
+          to="/messaging"
+          className={`flex flex-col items-center cursor-pointer ${activeTab === 4 ? "border-b-4 border-green-700" : ""}`}
+        >
           <AiFillMessage className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Messaging
@@ -82,8 +112,8 @@ export default function TopNav() {
         </Link>
 
         <div
-          onClick={() => setToggleProfileDropdown(!toggleProfileDropdown)}
-          className="flex flex-col items-center cursor-pointer"
+          onClick={() => handleProfileDropDown(5)}
+          className={`flex flex-col items-center cursor-pointer ${activeTab === 5 ? "border-b-4 border-green-700" : ""}`}
         >
           <img src={user?.avatar} alt="" className="w-7 h-7 rounded-full" />
           <span className="relative flex gap-1 items-center text-xs">
@@ -93,7 +123,10 @@ export default function TopNav() {
           </span>
         </div>
 
-        <div onClick={showDrawer} className="flex flex-col items-center cursor-pointer">
+        <div
+          onClick={() => showDrawer(11)}
+          className={`flex flex-col items-center cursor-pointer ${activeTab === 11 ? "border-b-4 border-green-700" : ""}`}
+        >
           <PiDotsNineBold className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             For Business
@@ -101,13 +134,17 @@ export default function TopNav() {
           </span>
         </div>
 
-        <div className="flex flex-col items-center cursor-pointer">
+        <Link
+          to="/learning"
+          onClick={() => handleActiveTab(7)}
+          className={`flex flex-col items-center cursor-pointer ${activeTab === 7 ? "border-b-4 border-green-700" : ""}`}
+        >
           <BsPersonVideo3 className="w-7 h-7" />
           <span className="flex gap-1 items-center text-xs">
             Learning
             <BiSolidChevronDown />
           </span>
-        </div>
+        </Link>
       </header>
 
       <Drawer title="For Business" placement="right" onClose={onClose} open={open}>
