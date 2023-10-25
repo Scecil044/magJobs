@@ -2,10 +2,20 @@ import { BiArrowBack, BiUpload } from "react-icons/bi";
 import TopNav from "../components/app/TopNav";
 import { Link } from "react-router-dom";
 import { AiFillQuestionCircle, AiOutlinePlus } from "react-icons/ai";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function CreateCompany() {
   const fileRef = useRef();
+  const [formData, setFormData] = useState({});
+
+  const handleChange = e => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(formData);
+  };
   return (
     <>
       <TopNav />
@@ -36,6 +46,7 @@ export default function CreateCompany() {
                     id="name"
                     placeholder="Enter your organization name"
                     className="w-full border-2 border-black py-1 px-3"
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -45,10 +56,11 @@ export default function CreateCompany() {
                   </label>
                   <input
                     type="text"
-                    name="linkedIn"
-                    id="linkedIn"
+                    name="linkedInProfile"
+                    id="linkedInProfile"
                     placeholder="Enter your unique LinkedIn link"
                     className="w-full border-2 border-black py-1 px-3"
+                    onChange={handleChange}
                   />
                   <Link to="/" htmlFor="" className="text-blue-700 font-semibold mt-2">
                     Learn more about the page public URL
@@ -65,6 +77,7 @@ export default function CreateCompany() {
                     id="website"
                     placeholder="Begin with https:// or www."
                     className="w-full border-2 border-black py-1 px-3"
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -78,6 +91,7 @@ export default function CreateCompany() {
                     id="industry"
                     placeholder="E.g information systems"
                     className="w-full border-2 border-black py-1 px-3"
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -85,7 +99,12 @@ export default function CreateCompany() {
                   <label htmlFor="name" className="text-gray-400">
                     Organization size
                   </label>
-                  <select name="organizationSize" id="organizationSize" className="w-full border-2 border-black py-1 px-3">
+                  <select
+                    onChange={handleChange}
+                    name="organizationSize"
+                    id="organizationSize"
+                    className="w-full border-2 border-black py-1 px-3"
+                  >
                     <option value="">Select</option>
                     <option value="50">0 - 50 Employees</option>
                     <option value="100">50 - 100 Employees</option>
@@ -100,7 +119,12 @@ export default function CreateCompany() {
                   <label htmlFor="" className="text-gray-400">
                     Organization Type
                   </label>
-                  <select name="organizationType" id="organizationType" className="w-full border-2 border-black py-1 px-3">
+                  <select
+                    onChange={handleChange}
+                    name="organizationType"
+                    id="organizationType"
+                    className="w-full border-2 border-black py-1 px-3"
+                  >
                     <option value="">Select</option>
                     <option value="Non Profit">Non Profit</option>
                     <option value="Government Agency">Government Agency</option>
@@ -126,11 +150,12 @@ export default function CreateCompany() {
                     Tagline
                   </label>
                   <textarea
-                    name="tagline"
+                    name="tagLine"
                     cols="10"
-                    id="tagline"
+                    id="tagLine"
                     placeholder="E.g An software development company specializing in open source"
                     className="w-full border-2 border-black py-1 px-3"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
@@ -147,7 +172,7 @@ export default function CreateCompany() {
                 </div>
               </form>
             </div>
-            <button type="submit" className="py-3 px-4 rounded-3xl border border-gray-400 self-end">
+            <button onClick={handleSubmit} className="py-3 px-4 rounded-3xl border border-gray-400 self-end">
               Create page
             </button>
           </div>

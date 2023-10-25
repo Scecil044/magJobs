@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
+import companyRoutes from "./routes/companyRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ app.use(cors());
 
 //routes
 app.use("/api/auth", authRoutes);
+app.use("/api/companies", companyRoutes);
 //test route
 app.get("/", (req, res) => {
   res.status(200).json("welcome sir");

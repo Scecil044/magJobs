@@ -18,6 +18,7 @@ import CreateCompany from "./pages/CreateCompany";
 import JobCollections from "./pages/JobCollections";
 import GuestHomePage from "./pages/GuestHomePage";
 import Guest from "./components/Guest";
+import AdminPanel from "./pages/AdminPanel";
 
 export default function App() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
           <Route element={<Guest />}>
             <Route path="/guest/home/page" element={<GuestHomePage />} />
           </Route>
+          <Route path="/admin/dashboard" element={<AdminPanel />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

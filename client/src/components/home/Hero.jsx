@@ -8,7 +8,11 @@ export default function Hero() {
         <SignIn />
       </div>
       <div className="hidden md:flex md:flex-1">
-        <img src="" alt="avatar" className="w-full object-cover" />
+        <img
+          src="https://as2.ftcdn.net/v2/jpg/02/35/65/41/1000_F_235654150_nRgITlEjg6fCuk03yjby0tllalhIQaq4.jpg"
+          alt="avatar"
+          className="w-full object-cover"
+        />
       </div>
     </div>
   );

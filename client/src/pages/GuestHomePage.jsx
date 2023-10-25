@@ -1,15 +1,59 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import GuestHeader from "../components/guest/GuestHeader";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { app } from "../firebase";
+import { loginFulfilledState, loginPendingState, loginRejectedState } from "../redux/auth/authSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function GuestHomePage() {
+  const { isLoading, isError } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [popUp, setPopUp] = useState(true);
+
+  const continueWithGoogle = async () => {
+    try {
+      dispatch(loginPendingState());
+      const provider = new GoogleAuthProvider();
+      const auth = getAuth(app);
+      const res = await signInWithPopup(auth, provider);
+      const response = await fetch("/api/auth/googleAuth", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: res.user.displayName,
+          email: res.user.email,
+          avatar: res.user.photoURL
+        })
+      });
+      const data = await response.json();
+      if (data.success === false) {
+        dispatch(loginRejectedState(data.message));
+        console.log(data.message);
+        return;
+      }
+      dispatch(loginFulfilledState(data));
+      navigate("/app/home");
+    } catch (error) {
+      dispatch(loginRejectedState(error.message));
+      console.log("Could not login with google", error);
+    }
+  };
   return (
     <>
       <GuestHeader />
       <div className="bg-white flex items-center justify-center h-screen relative">
-        <p className="text-lg">Try searching for your co-worker, classmate, professor, or friend.</p>
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://img.freepik.com/premium-vector/concept-productive-self-organization-effective-time-management-organize-work-woman-table-read-email-office-workplace-flat-vector-cartoon-illustration-isolated-white-background_198278-10333.jpg"
+            alt="avatar"
+            className="h-60"
+          />
+          <p className="text-lg">Try searching for your co-worker, classmate, professor, or friend.</p>
+        </div>
         {/* pop-up */}
         {popUp && (
           <div className="bg-white p-5 w-[300px] border border-gray-300 shadow-lg absolute top-24 right-8">
@@ -54,7 +98,11 @@ export default function GuestHomePage() {
                   By clicking continue, You agree to use this websites <span className="text-blue-600">Terms and services</span>
                 </span>
               </div>
-              <button className="flex items-center gap-2 justify-center w-full rounded-3xl border border-gray-300 py-2 px-4 shadow-lg hover:shadow-md transition-shadow duration-200">
+              <button
+                onClick={continueWithGoogle}
+                type="button"
+                className="flex items-center gap-2 justify-center w-full rounded-3xl border border-gray-300 py-2 px-4 shadow-lg hover:shadow-md transition-shadow duration-200"
+              >
                 <img src="/google.svg" alt="avatar" className="object-cover h-5 w-5" />
                 Continue with Google
               </button>

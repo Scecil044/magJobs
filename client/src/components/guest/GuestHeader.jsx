@@ -16,8 +16,12 @@ export default function GuestHeader() {
             <input type="text" placeholder="Last Name" className="bg-transparent py-1 pl-2 pr-10 outline-none" />
           </div>
           <div className="flex items-center gap-8">
-            <button className="py-2 px-4 hover:border hover:border-gray-300 hover:bg-blue-100 rounded-3xl">Join now</button>
-            <button className="border border-blue-700 py-2 px-4 rounded-3xl hover:bg-blue-100 hover:border-2">sign in</button>
+            <Link to="/register" className="py-2 px-4 hover:border hover:border-gray-300 hover:bg-blue-100 rounded-3xl">
+              Join now
+            </Link>
+            <Link to="/login" className="border border-blue-700 py-2 px-4 rounded-3xl hover:bg-blue-100 hover:border-2">
+              sign in
+            </Link>
           </div>
         </nav>
       </header>
