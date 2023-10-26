@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AuthSpinner from "../components/spinners/authSpinner";
+import AuthSpinner from "../components/spinners/AuthSpinner";
 import GoogleLogin from "../components/oAuth/GoogleLogin";
 import FaceBookLogin from "../components/oAuth/FacebookLogin";
 import { useNavigate } from "react-router-dom";
