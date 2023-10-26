@@ -23,9 +23,7 @@ app.use(cors());
 app.use("/api/auth", authRoutes);
 app.use("/api/companies", companyRoutes);
 //test route
-app.get("/", (req, res) => {
-  res.status(200).json("welcome sir");
-});
+
 //hosting configurations
 app.use(express.static(path.join(__dirname, "/client/dist")));
 app.get("*", (req, res) => {
