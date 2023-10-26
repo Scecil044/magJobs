@@ -45,9 +45,12 @@ export default function Jobs() {
                   <div className="flex flex-1 flex-col gap-1">
                     <p className="text-sm">Premium helped one member to get 7 interviews in 7 days</p>
                     <div className="mx-auto">
-                      <button className="flex items-center text-sm justify-center rounded-3xl border border-blue-500 py-1 px-3 hover:bg-blue-100">
+                      <Link
+                        to="/subscription"
+                        className="flex items-center text-sm justify-center rounded-3xl border border-blue-500 py-1 px-3 hover:bg-blue-100"
+                      >
                         Find out how
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

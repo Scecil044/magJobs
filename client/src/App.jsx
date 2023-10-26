@@ -19,6 +19,7 @@ import JobCollections from "./pages/JobCollections";
 import GuestHomePage from "./pages/GuestHomePage";
 import Guest from "./components/Guest";
 import AdminPanel from "./pages/AdminPanel";
+import Subscribe from "./pages/Subscribe";
 
 export default function App() {
   return (
@@ -48,6 +49,7 @@ export default function App() {
           </Route>
           <Route path="/admin/dashboard" element={<AdminPanel />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/subscription" element={<Subscribe />} />
         </Routes>
       </BrowserRouter>
     </div>

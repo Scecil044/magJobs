@@ -60,7 +60,7 @@ export default function JobCollections({ jobs = mock }) {
     <div className="p-5">
       <div className="flex bg-white rounded-lg shadow-lg border border-gray-300">
         <div className="flex-1 items-start">
-          <div className="px-3 py-2 w-full bg-indigo-700 text-white top-0 sticky">
+          <div className="px-3 py-2 w-full bg-[#0072b1] text-white top-0 sticky">
             <p className="text-sm">Jobs based on your profile</p>
             <p className="text-xs">14 results</p>
           </div>
