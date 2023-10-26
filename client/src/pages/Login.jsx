@@ -1,29 +1,24 @@
 import { useState } from "react";
-import AuthSpinner from "../components/spinners/authSpinner";
+import AuthSpinner from "../components/spinners/AuthSpinner";
 import GoogleLogin from "../components/oAuth/GoogleLogin";
 import FaceBookLogin from "../components/oAuth/FacebookLogin";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
-import {
-  loginPendingState,
-  loginFulfilledState,
-  loginRejectedState,
-  reset,
-} from "../redux/auth/authSlice";
+import { loginPendingState, loginFulfilledState, loginRejectedState, reset } from "../redux/auth/authSlice";
 
 export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoading, isError } = useSelector((state) => state.auth);
+  const { isLoading, isError } = useSelector(state => state.auth);
   const [formData, setFormData] = useState({});
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (!formData.email) {
       setEmailError(true);
@@ -41,7 +36,7 @@ export default function Login() {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
       const data = await res.json();
       if (data.success === false) {
@@ -66,23 +61,15 @@ export default function Login() {
           </div>
         </span>
       </Link>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4 w-[400px] shadow-xl p-5 bg-white"
-      >
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-[400px] shadow-xl p-5 bg-white">
         <div className="mt-2">
           <h1 className="text-3xl font-bold">SignIn</h1>
-          <p className="text-sm text-gray-500 mt-1">
-            The professional world is waiting for you!
-          </p>
+          <p className="text-sm text-gray-500 mt-1">The professional world is waiting for you!</p>
         </div>
         {isError && (
           <div className="bg-red-600 text-white px-4 py-1 text-sm flex items-center justify-between z-50 shadow-lg hover:shadow-none transition-shadow duration-500">
             {isError}
-            <div
-              onClick={() => dispatch(reset())}
-              className="rounded-full hover:bg-black/30 p-1 cursor-pointer"
-            >
+            <div onClick={() => dispatch(reset())} className="rounded-full hover:bg-black/30 p-1 cursor-pointer">
               <AiOutlineClose />
             </div>
           </div>
@@ -96,11 +83,7 @@ export default function Login() {
             className={`w-full outline-none border border-neutral-500 py-2 px-4 rounded-xl`}
             onChange={handleChange}
           />
-          {emailError && (
-            <span className="text-red-600 text-sm">
-              The email field is required
-            </span>
-          )}
+          {emailError && <span className="text-red-600 text-sm">The email field is required</span>}
         </div>
 
         <div>
@@ -112,11 +95,7 @@ export default function Login() {
             className={`w-full outline-none border border-neutral-500 py-2 px-4 rounded-xl`}
             onChange={handleChange}
           />
-          {passwordError && (
-            <span className="text-red-600 text-sm">
-              The password field is required
-            </span>
-          )}
+          {passwordError && <span className="text-red-600 text-sm">The password field is required</span>}
         </div>
 
         <div className="flex flex-col gap-2">
