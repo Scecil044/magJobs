@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {
-  loginFulfilledState,
-  loginPendingState,
-  loginRejectedState,
-} from "../../redux/auth/authSlice";
-import SignInWithGoogle from "./signInWithGoogle";
+import { loginFulfilledState, loginPendingState, loginRejectedState } from "../../redux/auth/authSlice";
+import SignInWithGoogle from "./SignInWithGoogle";
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -14,11 +10,11 @@ export default function SignIn() {
   const [formData, setFormData] = useState({});
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const handleChange = (e) => {
+  const handleChange = e => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (!formData.email) {
       setEmailError(true);
@@ -36,7 +32,7 @@ export default function SignIn() {
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
 
       const data = await response.json();
@@ -64,11 +60,7 @@ export default function SignIn() {
             onChange={handleChange}
             className="outline-none border border-gray-400 py-4 px-4 w-full rounded-lg"
           />
-          {emailError && (
-            <span className="text-red-600 text-sm">
-              The email field is required
-            </span>
-          )}
+          {emailError && <span className="text-red-600 text-sm">The email field is required</span>}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -80,11 +72,7 @@ export default function SignIn() {
             onChange={handleChange}
             className="outline-none border border-gray-400 py-4 px-4 w-full rounded-lg"
           />
-          {passwordError && (
-            <span className="text-red-600 text-sm">
-              The password field is required
-            </span>
-          )}
+          {passwordError && <span className="text-red-600 text-sm">The password field is required</span>}
         </div>
         <div className="mt-3">
           <Link
@@ -98,9 +86,7 @@ export default function SignIn() {
           <button className="flex items-center justify-center bg-indigo-700 rounded-3xl text-white w-[95%] mx-auto py-3 px-4 hover:bg-indigo-800">
             Sign in
           </button>
-          <div className="text-center text-gray-400">
-            ______________ or ______________
-          </div>
+          <div className="text-center text-gray-400">______________ or ______________</div>
           <SignInWithGoogle />
 
           <Link
