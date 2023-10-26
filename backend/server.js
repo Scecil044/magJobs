@@ -6,8 +6,10 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import companyRoutes from "./routes/companyRoutes.js";
+import path from "path";
 
 dotenv.config();
+const __dirname = path.resolve();
 const app = express();
 
 const PORT = process.env.PORT || 5008;
@@ -23,6 +25,11 @@ app.use("/api/companies", companyRoutes);
 //test route
 app.get("/", (req, res) => {
   res.status(200).json("welcome sir");
+});
+//hosting configurations
+app.use(express.static(path.join(__dirname, "/client/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.json(__dirname, "client", "dist", "index.html"));
 });
 
 //middleware
