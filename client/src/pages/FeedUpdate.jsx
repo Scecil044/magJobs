@@ -1,5 +1,5 @@
 import { BsThreeDots } from "react-icons/bs";
-import AppAdd from "../components/common/appAdd";
+import AppAdd from "../components/common/AppAdd";
 import { AiFillLike, AiFillDislike, AiOutlinePlus } from "react-icons/ai";
 import { BiPlus, BiWorld } from "react-icons/bi";
 import Reactions from "../components/feeds/Reactions";

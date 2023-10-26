@@ -4,7 +4,7 @@ import MainProfileCard from "../components/app/containers/profile/MainProfileCar
 import SuggestedContacts from "../components/app/containers/profile/SuggestedContacts";
 import ViewedProfiles from "../components/app/containers/profile/ViewedProfiles";
 import BodyFooter from "../components/common/BodyFooter";
-import AppAdd from "../components/common/appAdd";
+import AppAdd from "../components/common/AppAdd";
 import { useSelector } from "react-redux";
 
 export default function Profile() {
