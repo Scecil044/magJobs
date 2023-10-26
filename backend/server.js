@@ -9,8 +9,8 @@ import companyRoutes from "./routes/companyRoutes.js";
 import path from "path";
 
 dotenv.config();
-const __dirname = path.resolve();
 const app = express();
+const __dirname = path.resolve();
 
 const PORT = process.env.PORT || 5008;
 
