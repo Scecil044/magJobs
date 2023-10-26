@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import companyRoutes from "./routes/companyRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import path from "path";
 import morgan from "morgan";
 
@@ -23,6 +24,7 @@ app.use(morgan());
 
 //routes
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/companies", companyRoutes);
 //test route
 

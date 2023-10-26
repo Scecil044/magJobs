@@ -5,8 +5,24 @@ import RecentGroupsAndEvents from "../components/app/containers/RecentGroupsAndE
 import StartPostCard from "../components/app/containers/StartPostCard";
 import { Link } from "react-router-dom";
 import AddText from "../components/common/AddText";
+import { useEffect, useState } from "react";
 
 export default function UserHome() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const res = await fetch("/api/users/get/users");
+        const data = await res.json();
+        setUsers(data);
+        console.log(users);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUsers();
+  }, []);
   return (
     <div>
       {/* main */}
@@ -32,7 +48,7 @@ export default function UserHome() {
         {/* right component */}
         <div className="flex flex-col gap-3 self-start">
           <div className="bg-white rounded-lg shadow-md p-5 w-[300px] flex flex-col gap-2 border border-gray-400">
-            <AddToFeed />
+            <AddToFeed feeds={users} />
           </div>
 
           {/* Advert section */}
