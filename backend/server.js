@@ -8,7 +8,6 @@ import authRoutes from "./routes/authRoutes.js";
 import companyRoutes from "./routes/companyRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import path from "path";
-import morgan from "morgan";
 
 dotenv.config();
 const app = express();
@@ -20,7 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
-app.use(morgan());
 
 //routes
 app.use("/api/auth", authRoutes);

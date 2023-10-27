@@ -6,6 +6,7 @@ import ViewedProfiles from "../components/app/containers/profile/ViewedProfiles"
 import BodyFooter from "../components/common/BodyFooter";
 import AppAdd from "../components/common/AppAdd";
 import { useSelector } from "react-redux";
+import AddText from "../components/common/AddText";
 
 export default function Profile() {
   const { user } = useSelector(state => state.auth);
@@ -24,7 +25,7 @@ export default function Profile() {
           <SuggestedContacts />
 
           {/* app custom add */}
-          <AppAdd />
+          <AddText />
         </div>
       </div>
 

@@ -25,10 +25,22 @@ export const login = async (req, res, next) => {
 };
 
 export const register = async (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, lastName, email, password, industry, headline, additionalName, education, country, city } = req.body;
   try {
     const userName = firstName?.charAt(0)?.toLowerCase() + lastName?.split("")[0]?.toUpperCase() + lastName?.slice(1);
-    const user = await User.create({ firstName, lastName, userName, email, password });
+    const user = await User.create({
+      firstName,
+      lastName,
+      userName,
+      email,
+      password,
+      industry,
+      headline,
+      additionalName,
+      education,
+      country,
+      city
+    });
     user.password = undefined;
     res.status(200).json(user);
   } catch (error) {

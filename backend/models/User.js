@@ -16,6 +16,9 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
+    additionalName: {
+      type: String
+    },
     email: {
       type: String,
       required: true,
@@ -26,6 +29,21 @@ const userSchema = new mongoose.Schema(
       required: true,
       default:
         "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg"
+    },
+    industry: {
+      type: String
+    },
+    headline: {
+      type: String
+    },
+    education: {
+      type: Array
+    },
+    country: {
+      type: String
+    },
+    city: {
+      type: String
     },
     followers: {
       type: Array

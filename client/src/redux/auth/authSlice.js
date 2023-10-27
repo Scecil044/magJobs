@@ -22,6 +22,18 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isError = action.payload;
     },
+    updateUserPendingState: state => {
+      state.isLoading = true;
+    },
+    updateUserFulfilledState: (state, action) => {
+      state.isLoading = false;
+      state.isError = false;
+      state.user = action.payload;
+    },
+    updateUserRejectedState: (state, action) => {
+      state.isLoading = false;
+      state.isError = action.payload;
+    },
     reset: state => {
       state.isError = false;
     },
@@ -31,5 +43,14 @@ export const authSlice = createSlice({
   }
 });
 
-export const { loginFulfilledState, loginPendingState, loginRejectedState, terminateSession, reset } = authSlice.actions;
+export const {
+  loginFulfilledState,
+  loginPendingState,
+  loginRejectedState,
+  updateUserFulfilledState,
+  updateUserPendingState,
+  updateUserRejectedState,
+  terminateSession,
+  reset
+} = authSlice.actions;
 export default authSlice.reducer;
