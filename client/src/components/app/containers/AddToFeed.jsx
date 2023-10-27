@@ -33,7 +33,7 @@ export default function AddToFeed({ feeds }) {
             <div key={index}>
               <div className="flex gap-2">
                 <Link to="/profile">
-                  <img src="/google.svg" alt="avatar" className="w-10 h-10 rounded-full" />
+                  <img src={feed?.avatar} alt="avatar" className="w-12 h-12 rounded-full" />
                 </Link>
                 <div className="flex flex-col">
                   <h1 className="font-semibold card-header">

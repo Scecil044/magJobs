@@ -2,9 +2,12 @@ import { useSelector } from "react-redux";
 import { BsPencil } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Interests from "./Interests";
+import { useState } from "react";
+import AppModal from "../../../common/AppModal";
 
 export default function MainProfileCard() {
   const { user } = useSelector(state => state.auth);
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="flex flex-col gap-5">
       <div className="bg-white shadow-lg border border-gray-400">
@@ -20,7 +23,7 @@ export default function MainProfileCard() {
             <img src={user?.avatar} alt="avatar" className="rounded-full w-28 h-28" />
           </div>
           <Link to="/" className="absolute top-7 right-12 rounded-full bg-white h-9 w-9 flex items-center justify-center">
-            <BsPencil className="h-5 w-5 text-blue-600" />
+            <BsPencil className="h-5 w-5 text-blue-600 cursor-pointer" />
           </Link>
         </div>
 
@@ -40,7 +43,7 @@ export default function MainProfileCard() {
           <div className="flex flex-col mt-3">
             <div className="flex gap-5 items-center justify-end mr-1">
               <span className="rounded-full text-white bg-indigo-800 p-1">MJ</span>
-              <BsPencil className="h-5 w-5" />
+              <BsPencil onClick={() => setShowModal(true)} className="h-5 w-5 cursor-pointer" />
             </div>
             <div className="flex gap-1 items-center">
               <div>
@@ -92,6 +95,9 @@ export default function MainProfileCard() {
       </div>
 
       <Interests />
+
+      {/* modal */}
+      <AppModal showModal={showModal} setShowModal={setShowModal} title={"Edit Intro"} user={user} />
     </div>
   );
 }
